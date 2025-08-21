@@ -49,8 +49,8 @@ const skills = [
 
 const sections = [
   { id: "home", label: "Accueil" },
-  { id: "works", label: "Mes Travaux" },
   { id: "profile", label: "Mon Profil" },
+  { id: "works", label: "Mes Travaux" },
   { id: "contact", label: "Me Contacter" },
 ]
 
@@ -91,7 +91,7 @@ const projects = ref<Project[]>([
     title: "Pokédle",
     summary: "Un Wordle façon Pokémon réalisé en PHP.",
     long:
-      "Ce projet universitaire m'a permis de réaliser un jeu de mon choix avec une consigne principale à respecter : Tout en PHP ! Ce travail allie mes compétences techniques et mon goût pour les expériences interactives avec ma passion pour les pokémons afin de créer un jeu captivant et intuitif à l'atmosphère plaisante. Le jeu marche comme un Wordle, où chaque joueur doit deviner un Pokémon à partir de ses caractéristiques.",
+      "Ce projet universitaire m'a permis de réaliser un jeu de mon choix avec une consigne principale à respecter : Tout en PHP ! Ce travail allie mes compétences techniques et mon goût pour les expériences interactives avec ma passion pour les pokémons; le but : créer un jeu captivant et intuitif à l'atmosphère plaisante. Le jeu fonctionne comme un Wordle, où chaque joueur doit deviner un Pokémon à partir de ses caractéristiques.",
     stack: ["PHP", "Architecture MVC", "MySQL", "HTML/CSS", "JavaScript"],
     cover: "/img/Pokedle.png",
     links: [{ label: "Découvrir le Jeu", href: "https://portfoliojorgemonteiro.fr/pokedle4g/index.php" }]
@@ -101,7 +101,7 @@ const projects = ref<Project[]>([
     title: "Cheers Location",
     summary: "Refonte d'un site e-commerce en Medusa 2 et Nuxt 3",
     long:
-      "Dans le cadre de mon stage de deuxième année, j'ai été amené à recréer le site de Cheers Location, location de mobilier pour vos évènements. (N'hésitez pas à y faire un tour !) J'ai d'abord réalisé un rebrand de la marque, suivi des maquettes du site que j'ai ensuite codé avec deux framework : Medusa et Nuxt. Deux mois n'ont pas suffit pour rebrander la marque et terminer le site, néanmoins vous pouvez y trouver une première version ci-dessous.",
+      "Dans le cadre de mon stage de deuxième année, j'ai été amené à travailler sur la refonte du site de Cheers Location, location de mobilier pour vos évènements. (N'hésitez pas à y faire un tour !) J'ai d'abord réalisé un rebrand de la marque, suivi des maquettes du site que j'ai ensuite codé avec deux framework : Medusa et Nuxt. Deux mois n'ont pas suffit pour rebrander la marque et terminer le site, néanmoins vous pouvez y trouver une première version ci-dessous.",
     stack: ["Nuxt 3", "Medusa 2", "TailwindCSS", "TypeScript", "Vue", "PostgreSQL", "Figma"],
     cover: "/img/Cheers-Location.png",
     links: [{ label: "Première Version", href: "https://demo.example.com" }]
@@ -109,9 +109,9 @@ const projects = ref<Project[]>([
   {
     id: 3,
     title: "VDD",
-    summary: "Un projet mélangeant OpenData, consommation et visualisation. ",
+    summary: "Un projet qui mixe OpenData, consommation et visualisation. ",
     long:
-      "Ce projet de visualisation de données est le premier où je manipule de l'OpenData, et ça grâce au programme de l'association Latitudes visant à former les étudiants sur la data tout en répondant aux défis sociaux et environnementaux. Avec ce projet, j'ai donc appris à manipuler un fichier CSV, en récupérer les données pertinentes via JavaScript et les transformer en graphique grâce à des Bibliothèques comme d3.js.",
+      "Ce projet de visualisation de données est le premier où je manipule de l'OpenData, grâce au programme de l'association Latitudes qui vise à former les étudiants sur la data tout en répondant aux défis sociaux et environnementaux. Avec ce projet, j'ai appris à me servir d'un fichier CSV, en récupérer les données pertinentes via JavaScript et les transformer en graphique grâce à des Bibliothèques comme d3.js.",
     stack: ["Fichier CSV", "JavaScript", "d3.js", "HTML/CSS"],
     cover: "/img/VDD.png",
     links: [{ label: "Le Projet", href: "https://portfoliojorgemonteiro.fr/VDD/" }]
@@ -285,13 +285,95 @@ class Developer {
           Le Portfolio de Jorge
         </h1>
         <p class="text-base font-poppins bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-xl shadow-md reveal">
-          Étudiant en 2e année du BUT Métiers du Multimédia et de l’Internet spécialisé en Développement Web et Dispositifs Interactifs, je suis à la recherche d’une alternance pour la 3e année de mon cursus, à partir de septembre 2025. N'hésitez pas à naviguer sur mon Portfolio pour en savoir plus sur mes projets ou moi.
+          Étudiant en 2e année du BUT Métiers du Multimédia et de l’Internet spécialisé en Développement Web et Dispositifs Interactifs, je suis à la recherche d’une alternance pour la 3e année de mon cursus, à partir de septembre 2025. N'hésitez pas à naviguer sur mon Portfolio pour découvrir qui je suis et quels sont mes projets.
         </p>
       </div>
     </section>
 
+        <!-- Mon profil -->
+    <section id="profile" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
+      <div class="max-w-7xl mx-auto">
+        <h1 class="title profile-title mb-6 relative inline-block underline-line animate-underline">
+          Mon Profil
+        </h1>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <!-- Colonne gauche : Texte -->
+          <div class="reveal">
+            <div class="bg-white/60 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
+              <h3 class="kicker text-[#344995]">Une histoire de virages</h3>
+              <p>
+                Mon parcours a toujours suivi mes passions et chaque étape en fut un tournant.
+                Du dessin au lycée Maximilien Vox — où je visais graphiste — au cinéma en terminale,
+                j’ai exploré plusieurs univers sans m’y épanouir vraiment.
+                À l’IUT de Bobigny, la découverte du développement web a été un déclic dès la première seconde où j'ai transformé des lignes de code en interface.
+                Ce mix technique + créativité m'a fait changer de cap : je souhaite devenir développeur web.
+              </p>
+
+              <h3 class="kicker text-[#344995]">Aujourd’hui et demain</h3>
+              <p>
+                Aujourd’hui, je conçois des projets qui me ressemblent, mêlant esthétisme, ergonomie et réflexion.
+                Ce portfolio en est le reflet : un espace où l'utile et l'agréable s’expriment et ne font qu'un.
+                Bonne visite.
+              </p>
+            </div>
+          </div>
+
+          <!-- Colonne droite : Carousel + Boutons + Lignes -->
+          <div class="reveal flex flex-col h-full">
+            <!-- Carousel compétences (double-marquee) -->
+            <div class="skills-wrap bg-white/60 backdrop-blur-md rounded-xl shadow-md p-4 sm:p-5">
+              <div class="marquee">
+                <ul class="marquee-track">
+                  <li v-for="s in skills" :key="'a-'+s" class="skill-pill">{{ s }}</li>
+                </ul>
+                <ul class="marquee-track" aria-hidden="true">
+                  <li v-for="s in skills" :key="'a2-'+s" class="skill-pill">{{ s }}</li>
+                </ul>
+              </div>
+              <div class="marquee marquee--reverse mt-3">
+                <ul class="marquee-track">
+                  <li v-for="s in skills" :key="'b-'+s" class="skill-pill">{{ s }}</li>
+                </ul>
+                <ul class="marquee-track" aria-hidden="true">
+                  <li v-for="s in skills" :key="'b2-'+s" class="skill-pill">{{ s }}</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Boutons -->
+            <div class="flex flex-wrap gap-3 mt-6">
+              <a
+                href="/CV-JorgeMonteiro-Alternance.pdf"
+                target="_blank"
+                rel="noopener"
+                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
+              >
+                Accéder à mon CV
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jorge-monteiro-11a57a305/"
+                target="_blank"
+                rel="noopener"
+                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
+              >
+                LinkedIn
+              </a>
+            </div>
+
+            <!-- Lignes animées -->
+            <div class="relative mt-10 h-32 sm:h-48 w-full overflow-hidden">
+              <div class="absolute bottom-2 right-16 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move"></div>
+              <div class="absolute bottom-10 right-12 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-200"></div>
+              <div class="absolute bottom-20 right-8 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-500"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Travaux -->
-    <section id="works" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
+    <section id="works" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 scroll-mt-28">
       <div class="max-w-7xl mx-auto">
         <h1 class="subtitle mb-6 relative text-[#344995] inline-block underline-line-right animate-underline">
           Mes Travaux
@@ -388,88 +470,6 @@ class Developer {
       </transition>
     </Teleport>
 
-    <!-- Mon profil -->
-    <section id="profile" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
-        <h1 class="title profile-title mb-6 relative inline-block underline-line animate-underline">
-          Mon Profil
-        </h1>
-
-        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
-          <!-- Colonne gauche : Texte -->
-          <div class="reveal">
-            <div class="bg-white/60 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
-              <h3 class="kicker text-[#344995]">Une histoire de virages</h3>
-              <p>
-                Mon parcours a toujours suivi mes passions et chaque étape fut un tournant.
-                Du dessin au lycée Maximilien Vox — où je visais graphiste — au cinéma en terminale,
-                j’ai exploré plusieurs univers sans m’y épanouir vraiment.
-                À l’IUT de Bobigny, la découverte du développement web a été un déclic dès la première seconde où j'ai changer des lignes de code en interface.
-                Ce mix technique + créativité m'a fait changer de cap à nouveau: je veux devenir développeur web.
-              </p>
-
-              <h3 class="kicker text-[#344995]">Aujourd’hui et demain</h3>
-              <p>
-                Aujourd’hui, je conçois des projets qui me ressemblent, mêlant esthétisme, ergonomie et réflexion.
-                Ce portfolio en est le reflet : un espace où l'utile et l'agréable s’expriment et ne font qu'un.
-                Bonne visite.
-              </p>
-            </div>
-          </div>
-
-          <!-- Colonne droite : Carousel + Boutons + Lignes -->
-          <div class="reveal flex flex-col h-full">
-            <!-- Carousel compétences (double-marquee) -->
-            <div class="skills-wrap bg-white/60 backdrop-blur-md rounded-xl shadow-md p-4 sm:p-5">
-              <div class="marquee">
-                <ul class="marquee-track">
-                  <li v-for="s in skills" :key="'a-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-                <ul class="marquee-track" aria-hidden="true">
-                  <li v-for="s in skills" :key="'a2-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-              </div>
-              <div class="marquee marquee--reverse mt-3">
-                <ul class="marquee-track">
-                  <li v-for="s in skills" :key="'b-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-                <ul class="marquee-track" aria-hidden="true">
-                  <li v-for="s in skills" :key="'b2-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Boutons -->
-            <div class="flex flex-wrap gap-3 mt-6">
-              <a
-                href="/CV-JorgeMonteiro-Alternance.pdf"
-                target="_blank"
-                rel="noopener"
-                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
-              >
-                Accéder à mon CV
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jorge-monteiro-11a57a305/"
-                target="_blank"
-                rel="noopener"
-                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
-              >
-                LinkedIn
-              </a>
-            </div>
-
-            <!-- Lignes animées -->
-            <div class="relative mt-10 h-32 sm:h-48 w-full overflow-hidden">
-              <div class="absolute bottom-2 right-16 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move"></div>
-              <div class="absolute bottom-10 right-12 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-200"></div>
-              <div class="absolute bottom-20 right-8 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-500"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact -->
     <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
       <div class="max-w-7xl mx-auto flex flex-col items-center">
@@ -496,7 +496,7 @@ class Developer {
         <div>
           <h2 class="font-questrial text-2xl mb-3">Jorge Monteiro</h2>
           <p class="font-poppins text-sm leading-relaxed opacity-90">
-            Développeur Web et passionné par le numérique, un numérique agréable où l'on si sent bien.
+            Développeur Web passionné par le numérique, un numérique agréable où l'on s'y sent bien.
           </p>
         </div>
 
