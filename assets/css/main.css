@@ -1,0 +1,46 @@
+/* assets/css/main.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles if needed */
+
+.wave-hover {
+  width: 125px;
+  height: 50px;
+  position: relative;
+  background-position-x: 390px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;base64,..."); /* ton svg vague ici */
+  transition: background-position-x 0.9s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.wave-hover:hover {
+  animation: wave-move 1s forwards;
+}
+
+.wave-hover a {
+  font-size: 18px;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wave-hover:hover a {
+  color: #d94f5c;
+}
+
+@keyframes wave-move {
+  0% {
+    background-position-x: 390px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
+}
