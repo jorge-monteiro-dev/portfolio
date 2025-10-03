@@ -343,7 +343,7 @@ class Developer {
             <!-- Boutons -->
             <div class="flex flex-wrap gap-3 mt-6">
               <a
-                href="/CV-JorgeMonteiro-Alternance.Dev.pdf"
+                href="/CV-JorgeMonteiro-Alternance-Dev.pdf"
                 target="_blank"
                 rel="noopener"
                 class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
