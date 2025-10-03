@@ -5,7 +5,7 @@
       Cheers Location
     </h1>
     <p class="text-lg md:text-xl text-[#344995] font-poppins mb-6">
-      Le projet n'est pas encore hebergé... 
+      Le projet n'est pas encore hébergé... 
       <br /> Revenez bientôt pour le découvrir !
     </p>
 
