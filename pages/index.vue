@@ -104,7 +104,7 @@ const projects = ref<Project[]>([
       "Dans le cadre de mon stage de deuxième année, j'ai été amené à travailler sur la refonte du site de Cheers Location, location de mobilier pour vos évènements. (N'hésitez pas à y faire un tour !) J'ai d'abord réalisé un rebrand de la marque, suivi des maquettes du site que j'ai ensuite codé avec deux framework : Medusa et Nuxt. Deux mois n'ont pas suffit pour rebrander la marque et terminer le site, néanmoins vous pouvez y trouver une première version ci-dessous.",
     stack: ["Nuxt 3", "Medusa 2", "TailwindCSS", "TypeScript", "Vue", "PostgreSQL", "Figma"],
     cover: "/img/Cheers-Location.png",
-    links: [{ label: "Première Version", href: "https://demo.example.com" }]
+    links: [{ label: "Première Version", href: "/Cheers-Location" }]
   },
   {
     id: 3,
@@ -300,21 +300,20 @@ class Developer {
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
           <!-- Colonne gauche : Texte -->
           <div class="reveal">
-            <div class="bg-white/60 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
+            <div class="bg-white/60 backdrop-blur-md p-8 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
               <h3 class="kicker text-[#344995]">Une histoire de virages</h3>
               <p>
-                Mon parcours a toujours suivi mes passions et chaque étape en fut un tournant.
-                Du dessin au lycée Maximilien Vox — où je visais graphiste — au cinéma en terminale,
-                j’ai exploré plusieurs univers sans m’y épanouir vraiment.
-                À l’IUT de Bobigny, la découverte du développement web a été un déclic dès la première seconde où j'ai transformé des lignes de code en interface.
-                Ce mix technique + créativité m'a fait changer de cap : je souhaite devenir développeur web.
+                Mon parcours a toujours suivi mes passions et chaque étape fut un tournant.
+                Du dessin au lycée Maximilien Vox — où je visais le métier de graphiste — au cinéma en terminale,
+                j’ai exploré plusieurs univers qui m'ont finalement conduit à l’IUT de Bobigny et à la découverte du développement web, qui fut un déclic dès la première seconde où j’ai transformé des lignes de code en une interface.
+                Ce mélange création + web a décidé pour moi : je souhaite devenir développeur web.
               </p>
 
               <h3 class="kicker text-[#344995]">Aujourd’hui et demain</h3>
               <p>
                 Aujourd’hui, je conçois des projets qui me ressemblent, mêlant esthétisme, ergonomie et réflexion.
                 Ce portfolio en est le reflet : un espace où l'utile et l'agréable s’expriment et ne font qu'un.
-                Bonne visite.
+                Alors, bonne visite !
               </p>
             </div>
           </div>
@@ -344,7 +343,7 @@ class Developer {
             <!-- Boutons -->
             <div class="flex flex-wrap gap-3 mt-6">
               <a
-                href="/CV-JorgeMonteiro-Alternance.pdf"
+                href="/CV-JorgeMonteiro-Alternance.Dev.pdf"
                 target="_blank"
                 rel="noopener"
                 class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
