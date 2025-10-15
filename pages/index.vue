@@ -99,7 +99,7 @@ const projects = ref<Project[]>([
   {
     id: 2,
     title: "Cheers Location",
-    summary: "Refonte d'un site e-commerce en Medusa 2 et Nuxt 3",
+    summary: "Refonte d'un site e-commerce en Medusa 2 et Nuxt 3.",
     long:
       "Dans le cadre de mon stage de deuxième année, j'ai été amené à travailler sur la refonte du site de Cheers Location, location de mobilier pour vos évènements. (N'hésitez pas à y faire un tour !) J'ai d'abord réalisé un rebrand de la marque, suivi des maquettes du site que j'ai ensuite codé avec deux framework : Medusa et Nuxt. Deux mois n'ont pas suffit pour rebrander la marque et terminer le site, néanmoins vous pouvez y trouver une première version ci-dessous.",
     stack: ["Nuxt 3", "Medusa 2", "TailwindCSS", "TypeScript", "Vue", "PostgreSQL", "Figma"],
@@ -116,6 +116,36 @@ const projects = ref<Project[]>([
     cover: "/img/VDD.png",
     links: [{ label: "Le Projet", href: "https://portfoliojorgemonteiro.fr/VDD/" }]
   },
+  {
+    id: 4,
+    title: "Wavz",
+    summary: "Maquette d'une plateforme de location, sons et lumières.",
+    long:
+      "Ce projet vient d'une idée d'un de mes amis, un petit projet d'entrepreunariat que l'on essaye de monter en place, alors j'ai réalisé cette maquette pour que l'on puisse avoir une idée de l'application et du développement de celle-ci. Travail sur un parcours utilisateur simple et efficace avec des animations fuident qui rendent la navigation attirante.",
+    stack: ["UX/UI", "Test Utilisateurs", "Figma", "Prototypage"],
+    cover: "/img/Wavz.png",
+    links: [{ label: "Voir le prototype", href: "https://www.figma.com/proto/WhBowACKbKeKCsUQQ4Ae7m/Wavz---Location-de-mat%C3%A9riel-Audiovisuel?node-id=4-2&starting-point-node-id=4%3A2" }]
+  },
+  {
+    id: 5,
+    title: "PasseTonBillet",
+    summary: "Création d'une nouvelle fonctionnalité : Le Billet Mystère.",
+    long:
+      "En collaboration avec d’autres étudiants, nous avons repensé l’expérience utilisateur de la plateforme PasseTonBillet en ajoutant une nouvelle fonctionnalité : Le Billet Mystère. Le but de ce travail était d'implémenter une fonctionnalité dans un environnement déjà existant tout en gardant une bonne hiérarchie visuelle et la cohérence graphique. Ce travail m’a permis d’approfondir mes compétences en UX/UI et accessibilité.",
+    stack: ["UX/UI", "Design System", "Figma", "Prototypage", "Accessibilité"],
+    cover: "/img/Passetonbillet.png",
+    links: [{ label: "Voir le fichier Figma", href: "https://www.figma.com/design/L4Ka1jcM3DUJgCDmtWaAog/PassetonBillet-?node-id=0-1&t=jM04bQxf0ZrsO2eM-1" }]
+  },
+  {
+    id: 6,
+    title: "Affiche Festival",
+    summary: 'Une commande du Festival "Les Vers Solidaires" en 2024 .',
+    long:
+      "Ce projet graphique a été l’occasion d’expérimenter autour de la composition d'une affiche, du travail de la typographie, des couleurs, du mouvement et des contrastes. L’objectif : créer une affiche moderne tout en respectant le cahier des charges du festival",
+    stack: ["Graphisme", "Illustrator"],
+    cover: "/img/affiche.png",
+    links: [{ label: "Voir l’affiche", href: "/img/Affiche-Les-Vers-Solidaires-Jorge-Monteiro.pdf" }]
+  }
 ])
 
 
