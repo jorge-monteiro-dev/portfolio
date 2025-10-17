@@ -315,7 +315,7 @@ class Developer {
           Le Portfolio de Jorge
         </h1>
         <p class="text-base font-poppins bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-xl shadow-md reveal">
-          Étudiant en 2e année du BUT Métiers du Multimédia et de l’Internet spécialisé en Développement Web et Dispositifs Interactifs, je suis à la recherche d’une alternance pour la 3e année de mon cursus, à partir de septembre 2025. N'hésitez pas à naviguer sur mon Portfolio pour découvrir qui je suis et quels sont mes projets.
+          Étudiant en 3e année du BUT Métiers du Multimédia et de l’Internet spécialisé en Développement Web et Dispositifs Interactifs, je suis à la recherche d’une alternance à partir de septembre 2025. N'hésitez pas à naviguer sur mon Portfolio pour découvrir qui je suis et quels sont mes projets.
         </p>
       </div>
     </section>
@@ -373,7 +373,7 @@ class Developer {
             <!-- Boutons -->
             <div class="flex flex-wrap gap-3 mt-6">
               <a
-                href="/CV-JorgeMonteiro-Alternance-Dev.pdf"
+                href="/CV-JorgeMonteiro-Alternance-Developpement.pdf"
                 target="_blank"
                 rel="noopener"
                 class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
