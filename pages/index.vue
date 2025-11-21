@@ -1,5 +1,95 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, nextTick } from "vue"
+import { useHead } from "#imports"   // ✔️ nécessaire pour SEO
+
+/* -------------------------------------------------------------------------- */
+/*                             🔥 META + JSON-LD                              */
+/* -------------------------------------------------------------------------- */
+
+useHead({
+  title: "Jorge Monteiro – Développeur & Designer",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Portfolio de Jorge Monteiro – Développeur web et designer. Découvrez mes projets en Nuxt, PHP, UX/UI, Figma, Tailwind, Medusa et plus.",
+    },
+    // OpenGraph
+    { property: "og:title", content: "Portfolio – Jorge Monteiro" },
+    {
+      property: "og:description",
+      content:
+        "Développeur web & Webdesigner. Consultez mes projets en Nuxt, PHP, UX/UI et plus.",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://leportfoliodejorge.com" },
+    { property: "og:image", content: "/img/preview.png" },
+
+    // Twitter Card
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Portfolio – Jorge Monteiro" },
+    {
+      name: "twitter:description",
+      content:
+        "Développeur web & designer. Consultez mes projets en Nuxt, PHP, UX/UI et plus.",
+    },
+    { name: "twitter:image", content: "/img/favicon.png" },
+  ],
+
+  script: [
+    // ----------------- JSON-LD PERSON -----------------
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://leportfoliodejorge.com",
+        name: "Jorge Monteiro",
+        jobTitle: "Développeur Web & Webesigner",
+        url: "https://leportfoliodejorge.com",
+        image: "https://leportfoliodejorge.com/CV-Alternance-Jorge-Monteiro-Developpement.pdf",
+        sameAs: [
+          "https://www.linkedin.com/in/jorge-monteiro/",
+          "https://github.com/jorge-monteiro-dev",
+        ],
+      }),
+      tagPriority: "critical"
+    },
+
+    // ----------------- JSON-LD WEBSITE -----------------
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        url: "https://leportfoliodejorge.com",
+        name: "Portfolio – Jorge Monteiro",
+        potentialAction: {
+          "@type": "SearchAction",
+          target:
+            "https://leportfoliodejorge.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      }),
+      tagPriority: "critical"
+    },
+
+    // ----------------- JSON-LD WEBPAGE -----------------
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Portfolio de Jorge Monteiro",
+        url: "https://leportfoliodejorge.com",
+        description:
+          "Portfolio de Jorge Monteiro – Développeur web et Webdesigner.",
+        about: { "@id": "https://leportfoliodejorge.com/#me" },
+      }),
+      tagPriority: "critical"
+    },
+  ],
+})
 
 const name = ref("")
 const email = ref("")
@@ -185,9 +275,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="font-sans bg-[#ECF7FF] text-[#344995] min-h-screen">
+  <div class="font-sans bg-[#ECF7FF] text-[#344995] min-h-screen" typeof="schema:WebSite" resource="#site">
     <!-- Navigation -->
-<nav class="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-md shadow-sm z-50">
+<nav class="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-md shadow-sm z-50" typeof="schema:SiteNavigationElement">
   <!-- 👇 mobile: burger à droite | desktop: contenu centré -->
   <div class="max-w-7xl mx-auto flex items-center justify-end md:justify-center px-4 sm:px-6 lg:px-8 py-3">
 
@@ -254,8 +344,7 @@ onBeforeUnmount(() => {
 
     <!-- Accueil -->
     <section
-      id="home"
-      class="relative min-h-[80vh] lg:h-screen flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-24 pt-24 lg:pt-0 scroll-mt-28"
+      id="home" typeof="schema:Person" resource="#me" class="relative min-h-[80vh] lg:h-screen flex flex-col lg:flex-row items-center justify-center gap-10 px-4 sm:px-6 lg:px-24 pt-24 lg:pt-0 scroll-mt-28"
     >
       <!-- Fond code qui défile (droite) -->
       <div
@@ -309,195 +398,259 @@ class Developer {
         </div>
       </div>
 
-      <!-- Contenu gauche -->
-      <div class="flex flex-col items-start relative z-10 max-w-2xl text-center lg:text-left">
-        <h1 class="title mb-6 relative inline-block underline-line animate-underline">
-          Le Portfolio de Jorge
-        </h1>
-        <p class="text-base font-poppins bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-xl shadow-md reveal">
-          Étudiant en 3e année du BUT Métiers du Multimédia et de l’Internet spécialisé en Développement Web et Dispositifs Interactifs, je suis à la recherche d’une alternance à partir de septembre 2025. N'hésitez pas à naviguer sur mon Portfolio pour découvrir qui je suis et quels sont mes projets.
-        </p>
-      </div>
-    </section>
+<!-- Contenu gauche -->
+<div
+  class="flex flex-col items-start relative z-10 max-w-2xl text-center lg:text-left"
+  typeof="schema:Person"
+  resource="#me"
+>
+  <h1
+    class="title mb-6 relative inline-block underline-line animate-underline"
+    property="schema:name"
+  >
+    Jorge Monteiro
+  </h1>
 
-        <!-- Mon profil -->
-    <section id="profile" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
-        <h1 class="title profile-title mb-6 relative inline-block underline-line animate-underline">
-          Mon Profil
-        </h1>
+  <p
+    class="text-base font-poppins bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-xl shadow-md reveal"
+    property="schema:description"
+  >
+    Étudiant en 3e année du BUT Métiers du Multimédia et de l’Internet spécialisé
+    en Développement Web et Dispositifs Interactifs, je suis à la recherche
+    d’une alternance à partir de septembre 2025. N'hésitez pas à naviguer sur mon
+    Portfolio pour découvrir qui je suis et quels sont mes projets.
+  </p>
 
-        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
-          <!-- Colonne gauche : Texte -->
-          <div class="reveal">
-            <div class="bg-white/60 backdrop-blur-md p-8 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
-              <h3 class="kicker text-[#344995]">Une histoire de virages</h3>
-              <p>
-                Mon parcours a toujours suivi mes passions et chaque étape fut un tournant.
-                Du dessin au lycée Maximilien Vox — où je visais le métier de graphiste — au cinéma en terminale,
-                j’ai exploré plusieurs univers qui m'ont finalement conduit à l’IUT de Bobigny et à la découverte du développement web, qui fut un déclic dès la première seconde où j’ai transformé des lignes de code en une interface.
-                Ce mélange création + web a décidé pour moi : je souhaite devenir développeur web.
-              </p>
+  <!-- Métadonnées invisibles mais utiles pour Google -->
+  <meta property="schema:jobTitle" content="Développeur Web / Étudiant MMI">
+  <meta property="schema:url" content="https://ton-domaine.fr">
+</div>
+</section>
 
-              <h3 class="kicker text-[#344995]">Aujourd’hui et demain</h3>
-              <p>
-                Aujourd’hui, je conçois des projets qui me ressemblent, mêlant esthétisme, ergonomie et réflexion.
-                Ce portfolio en est le reflet : un espace où l'utile et l'agréable s’expriment et ne font qu'un.
-                Alors, bonne visite !
-              </p>
-            </div>
-          </div>
+<!-- Mon profil -->
+<section id="profile" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
 
-          <!-- Colonne droite : Carousel + Boutons + Lignes -->
-          <div class="reveal flex flex-col h-full">
-            <!-- Carousel compétences (double-marquee) -->
-            <div class="skills-wrap bg-white/60 backdrop-blur-md rounded-xl shadow-md p-4 sm:p-5">
-              <div class="marquee">
-                <ul class="marquee-track">
-                  <li v-for="s in skills" :key="'a-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-                <ul class="marquee-track" aria-hidden="true">
-                  <li v-for="s in skills" :key="'a2-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-              </div>
-              <div class="marquee marquee--reverse mt-3">
-                <ul class="marquee-track">
-                  <li v-for="s in skills" :key="'b-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-                <ul class="marquee-track" aria-hidden="true">
-                  <li v-for="s in skills" :key="'b2-'+s" class="skill-pill">{{ s }}</li>
-                </ul>
-              </div>
-            </div>
+  <div class="max-w-7xl mx-auto">
+    <h1 class="title profile-title mb-6 relative inline-block underline-line animate-underline">
+      Mon Profil
+    </h1>
 
-            <!-- Boutons -->
-            <div class="flex flex-wrap gap-3 mt-6">
-              <a
-                href="/CV-Alternance-Jorge-Monteiro-Developpement.pdf"
-                target="_blank"
-                rel="noopener"
-                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
-              >
-                Accéder à mon CV
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jorge-monteiro-11a57a305/"
-                target="_blank"
-                rel="noopener"
-                class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
-              >
-                LinkedIn
-              </a>
-            </div>
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
 
-            <!-- Lignes animées -->
-            <div class="relative mt-10 h-32 sm:h-48 w-full overflow-hidden">
-              <div class="absolute bottom-2 right-16 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move"></div>
-              <div class="absolute bottom-10 right-12 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-200"></div>
-              <div class="absolute bottom-20 right-8 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-500"></div>
-            </div>
-          </div>
+      <!-- Colonne gauche : Texte -->
+      <div class="reveal">
+        <div class="bg-white/60 backdrop-blur-md p-8 sm:p-5 rounded-xl shadow-md font-poppins text-[15px] leading-relaxed space-y-3">
+          <h3 class="kicker text-[#344995]">Une histoire de virages</h3>
+          <p property="schema:description">
+            Mon parcours a toujours suivi mes passions et chaque étape fut un tournant.
+            Du dessin au lycée Maximilien Vox — où je visais le métier de graphiste —
+            au cinéma en terminale, j’ai exploré plusieurs univers qui m'ont finalement
+            conduit à l’IUT de Bobigny et à la découverte du développement web,
+            qui fut un déclic dès la première seconde où j’ai transformé des lignes
+            de code en une interface. Ce mélange création + web a décidé pour moi :
+            je souhaite devenir développeur web.
+          </p>
+
+          <h3 class="kicker text-[#344995]">Aujourd’hui et demain</h3>
+          <p property="schema:description">
+            Aujourd’hui, je conçois des projets qui me ressemblent, mêlant esthétisme,
+            ergonomie et réflexion. Ce portfolio en est le reflet : un espace où l'utile
+            et l'agréable s’expriment et ne font qu'un. Alors, bonne visite !
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- Travaux -->
-    <section id="works" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 scroll-mt-28">
-      <div class="max-w-7xl mx-auto">
-        <h1 class="subtitle mb-6 relative text-[#344995] inline-block underline-line-right animate-underline">
-          Mes Travaux
-        </h1>
+      <!-- Colonne droite : Carousel + Boutons + Lignes -->
+      <div class="reveal flex flex-col h-full">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full bg-white/40 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow-lg reveal">
-          <button
-            v-for="p in projects"
-            :key="p.id"
-            type="button"
-            class="card-work bg-[#ECF7FF]/60 backdrop-blur-md rounded-xl shadow relative overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-[#344995] min-h-[240px] sm:min-h-[300px] p-4 sm:p-6 flex flex-col"
-            @click="openProject(p)"
-            aria-haspopup="dialog"
-            :aria-label="`Ouvrir le projet ${p.title}`"
-          >
-            <!-- Image preview -->
-            <img
-              v-if="p.cover"
-              :src="p.cover"
-              :alt="`Image du projet ${p.title}`"
-              class="w-full h-40 sm:h-32 object-cover rounded-lg mb-4"
-              loading="lazy"
-            />
-
-            <h3 class="subsubtitle mt-2 mb-2 leading-tight">{{ p.title }}</h3>
-            <p class="text-sm font-poppins text-[#344995]">
-              {{ p.summary }}
-            </p>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= MODALE PROJET ======= -->
-    <Teleport to="body">
-      <transition name="fade">
+        <!-- Carousel compétences -->
         <div
-          v-if="showModal"
-          class="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3"
-          @click.self="closeModal"
-          aria-hidden="false"
+          class="skills-wrap bg-white/60 backdrop-blur-md rounded-xl shadow-md p-4 sm:p-5"
+          property="schema:knowsAbout"
         >
-          <transition name="scale">
-            <div
-              v-if="selectedProject"
-              ref="modalRef"
-              role="dialog"
-              aria-modal="true"
-              :aria-label="`Détails du projet ${selectedProject.title}`"
-              tabindex="-1"
-              class="w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-2xl shadow-xl p-4 sm:p-6 outline-none"
+          <div class="marquee">
+            <ul class="marquee-track">
+              <li v-for="s in skills" :key="'a-'+s" class="skill-pill">{{ s }}</li>
+            </ul>
+            <ul class="marquee-track" aria-hidden="true">
+              <li v-for="s in skills" :key="'a2-'+s" class="skill-pill">{{ s }}</li>
+            </ul>
+          </div>
+          <div class="marquee marquee--reverse mt-3">
+            <ul class="marquee-track">
+              <li v-for="s in skills" :key="'b-'+s" class="skill-pill">{{ s }}</li>
+            </ul>
+            <ul class="marquee-track" aria-hidden="true">
+              <li v-for="s in skills" :key="'b2-'+s" class="skill-pill">{{ s }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Boutons -->
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a
+            href="/CV-Alternance-Jorge-Monteiro-Developpement.pdf"
+            target="_blank"
+            rel="noopener"
+            class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
+            property="schema:hasCredential"
+          >
+            Accéder à mon CV
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jorge-monteiro-11a57a305/"
+            target="_blank"
+            rel="noopener"
+            class="px-5 py-2.5 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
+            property="schema:sameAs"
+          >
+            LinkedIn
+          </a>
+        </div>
+
+        <!-- Lignes animées -->
+        <div class="relative mt-10 h-32 sm:h-48 w-full overflow-hidden">
+          <div class="absolute bottom-2 right-16 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move"></div>
+          <div class="absolute bottom-10 right-12 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-200"></div>
+          <div class="absolute bottom-20 right-8 w-40 sm:w-56 h-1.5 bg-[#344995]/30 animate-line-move delay-500"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Travaux -->
+<section id="works" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 scroll-mt-28">
+  <div class="max-w-7xl mx-auto">
+    <h1 class="subtitle mb-6 relative text-[#344995] inline-block underline-line-right animate-underline">
+      Mes Travaux
+    </h1>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full bg-white/40 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow-lg reveal"
+      typeof="schema:ItemList"
+    >
+      <meta property="schema:name" content="Liste des projets de Jorge Monteiro">
+
+      <button
+        v-for="p in projects"
+        :key="p.id"
+        type="button"
+        class="card-work bg-[#ECF7FF]/60 backdrop-blur-md rounded-xl shadow relative overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-[#344995] min-h-[240px] sm:min-h-[300px] p-4 sm:p-6 flex flex-col"
+        @click="openProject(p)"
+        aria-haspopup="dialog"
+        :aria-label="`Ouvrir le projet ${p.title}`"
+        typeof="schema:CreativeWork"
+        :resource="`#project-${p.id}`"
+      >
+        <!-- Image preview -->
+        <img
+          v-if="p.cover"
+          :src="p.cover"
+          :alt="`Image du projet ${p.title}`"
+          class="w-full h-40 sm:h-32 object-cover rounded-lg mb-4"
+          loading="lazy"
+          property="schema:image"
+        />
+
+        <h3 class="subsubtitle mt-2 mb-2 leading-tight" property="schema:name">
+          {{ p.title }}
+        </h3>
+
+        <p class="text-sm font-poppins text-[#344995]" property="schema:description">
+          {{ p.summary }}
+        </p>
+
+        <!-- technologies -->
+        <meta
+          v-if="p.stack?.length"
+          property="schema:keywords"
+          :content="p.stack.join(', ')"
+        >
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ======= MODALE PROJET ======= -->
+<Teleport to="body">
+  <transition name="fade">
+    <div
+      v-if="showModal"
+      class="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3"
+      @click.self="closeModal"
+      aria-hidden="false"
+    >
+      <transition name="scale">
+        <div
+          v-if="selectedProject"
+          ref="modalRef"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="`Détails du projet ${selectedProject.title}`"
+          tabindex="-1"
+          class="w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white rounded-2xl shadow-xl p-4 sm:p-6 outline-none"
+          typeof="schema:CreativeWork"
+          :resource="`#project-${selectedProject.id}`"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <h2 class="font-questrial text-2xl sm:text-3xl text-[#344995]" property="schema:name">
+              {{ selectedProject.title }}
+            </h2>
+            <button
+              type="button"
+              class="p-2 rounded-xl hover:bg-[#ECF7FF] focus:outline-none focus:ring-2 focus:ring-[#344995]"
+              @click="closeModal"
+              aria-label="Fermer la fenêtre"
             >
-              <div class="flex items-start justify-between gap-4">
-                <h2 class="font-questrial text-2xl sm:text-3xl text-[#344995]">{{ selectedProject.title }}</h2>
-                <button
-                  type="button"
-                  class="p-2 rounded-xl hover:bg-[#ECF7FF] focus:outline-none focus:ring-2 focus:ring-[#344995]"
-                  @click="closeModal"
-                  aria-label="Fermer la fenêtre"
-                >
-                  ✕
-                </button>
-              </div>
+              ✕
+            </button>
+          </div>
 
-              <div class="mt-4 font-poppins text-[#344995] space-y-4">
-                <p v-if="selectedProject.long">{{ selectedProject.long }}</p>
+          <div class="mt-4 font-poppins text-[#344995] space-y-4">
+            <p v-if="selectedProject.long" property="schema:about">
+              {{ selectedProject.long }}
+            </p>
 
-                <div v-if="selectedProject.stack?.length" class="flex flex-wrap gap-2">
-                  <span
-                    v-for="tech in selectedProject.stack"
-                    :key="tech"
-                    class="px-2.5 py-1 rounded-full border border-[#344995]/30 text-sm"
-                  >
-                    {{ tech }}
-                  </span>
-                </div>
-
-                <div v-if="selectedProject.links?.length" class="flex flex-wrap gap-3 pt-2">
-                  <a
-                    v-for="lnk in selectedProject.links"
-                    :key="lnk.href"
-                    class="px-4 py-2 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
-                    :href="lnk.href"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    {{ lnk.label }}
-                  </a>
-                </div>
-              </div>
+            <!-- stack -->
+            <div v-if="selectedProject.stack?.length" class="flex flex-wrap gap-2">
+              <span
+                v-for="tech in selectedProject.stack"
+                :key="tech"
+                class="px-2.5 py-1 rounded-full border border-[#344995]/30 text-sm"
+                property="schema:keywords"
+              >
+                {{ tech }}
+              </span>
             </div>
-          </transition>
+
+            <!-- liens externes -->
+            <div v-if="selectedProject.links?.length" class="flex flex-wrap gap-3 pt-2">
+              <a
+                v-for="lnk in selectedProject.links"
+                :key="lnk.href"
+                class="px-4 py-2 rounded-xl bg-[#A43838] text-white hover:translate-y-[-2px] transition-transform"
+                :href="lnk.href"
+                target="_blank"
+                rel="noopener"
+                property="schema:url"
+              >
+                {{ lnk.label }}
+              </a>
+            </div>
+
+            <!-- référence au créateur -->
+            <meta property="schema:creator" content="#me">
+          </div>
         </div>
       </transition>
-    </Teleport>
+    </div>
+  </transition>
+</Teleport>
+
 
     <!-- Contact -->
     <section id="contact" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-24 bg-[#FFFFFF] scroll-mt-28">
